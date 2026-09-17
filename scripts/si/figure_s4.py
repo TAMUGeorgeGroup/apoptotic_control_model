@@ -35,7 +35,7 @@ def compute(quick=False):
 def plot(data):
     kappa, c3, kappa_data, c3_data = data
     use_paper_style()
-    fig, axes = plt.subplots(2, 2, figsize=(11, 7))
+    fig, axes = plt.subplots(2, 2, figsize=(11, 7), layout="constrained")
     states = np.arange(1, 201)
     panels = (
         (
@@ -43,7 +43,7 @@ def plot(data):
             kappa,
             "viridis",
             r"$\kappa$",
-            r"Policy sweep over deviation penalty $\kappa$",
+            r"Policy sweep over $\kappa$",
             r"Optimal action $a^*(i)$",
         ),
         (
@@ -51,7 +51,7 @@ def plot(data):
             kappa,
             "RdBu_r",
             r"$\kappa$",
-            r"Drift sweep over deviation penalty $\kappa$",
+            r"Drift sweep over $\kappa$",
             r"Per-capita drift $(\lambda-\mu)/i$",
         ),
         (
@@ -59,7 +59,7 @@ def plot(data):
             c3,
             "viridis",
             r"$c_3$",
-            r"Policy sweep over linear growth reward $c_3$",
+            r"Policy sweep over $c_3$",
             r"Optimal action $a^*(i)$",
         ),
         (
@@ -67,7 +67,7 @@ def plot(data):
             c3,
             "RdBu_r",
             r"$c_3$",
-            r"Drift sweep over linear growth reward $c_3$",
+            r"Drift sweep over $c_3$",
             r"Per-capita drift $(\lambda-\mu)/i$",
         ),
     )
@@ -81,7 +81,6 @@ def plot(data):
         ax.set(title=title, xlabel="Population state $i$", ylabel=ylabel)
         ax.title.set_fontweight("bold")
         panel_label(ax, f"{label}.")
-    fig.tight_layout()
     return fig
 
 

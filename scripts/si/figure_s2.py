@@ -38,13 +38,13 @@ def compute(quick=False):
 
 def plot(data):
     use_paper_style()
-    fig, axes = plt.subplots(3, 2, figsize=(11, 11))
+    fig, axes = plt.subplots(3, 2, figsize=(11, 11), layout="constrained")
     states = np.arange(1, 101)
     for ax, key, ylabel, title in (
-        (axes[0, 0], "c1", r"$c_1$", "Quadratic Cost Model: Optimal Policy"),
-        (axes[0, 1], "kappa", r"$\kappa$", r"Policy sweep over deviation penalty $\kappa$"),
-        (axes[1, 0], "c3", r"$c_3$", r"Policy sweep over growth reward $c_3$"),
-        (axes[1, 1], "alpha", r"$\alpha$", r"Policy sweep over discount factor $\alpha$"),
+        (axes[0, 0], "c1", r"$c_1$", "Quadratic-cost policy"),
+        (axes[0, 1], "kappa", r"$\kappa$", r"Policy sweep over $\kappa$"),
+        (axes[1, 0], "c3", r"$c_3$", r"Policy sweep over $c_3$"),
+        (axes[1, 1], "alpha", r"$\alpha$", r"Policy sweep over $\alpha$"),
     ):
         values, policies = data[key]
         image = heatmap(ax, policies[:, 1:101], states, values)
@@ -59,7 +59,7 @@ def plot(data):
         values, horizon = data[key]
         ax.plot(values, horizon, marker="o", markersize=3)
         ax.set(
-            title=rf"Interior regulating state vs {xlabel}",
+            title=rf"Regulating state versus {xlabel}",
             xlabel=xlabel,
             ylabel="Growth horizon / drift zero-crossing",
         )
@@ -68,7 +68,6 @@ def plot(data):
 
     for label, ax in zip("ABCDEF", axes.flat):
         panel_label(ax, f"{label}.")
-    fig.tight_layout()
     return fig
 
 

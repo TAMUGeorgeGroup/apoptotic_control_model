@@ -75,7 +75,7 @@ def plot(data):
     )
 
     ax.set(
-        title=r"Growth/suppression phase map: $c_1$ vs $c_3$",
+        title=r"Growth–suppression map: $c_1$ versus $c_3$",
         xlabel=r"$c_3$ growth reward",
         ylabel=r"$c_1$ quadratic penalty",
     )

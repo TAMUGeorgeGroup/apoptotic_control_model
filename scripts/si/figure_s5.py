@@ -28,7 +28,7 @@ def compute(quick=False):
 def plot(data):
     beta, policies, drifts = data
     use_paper_style()
-    fig, axes = plt.subplots(1, 2, figsize=(11, 4))
+    fig, axes = plt.subplots(1, 2, figsize=(11, 4), layout="constrained")
     states = np.arange(1, 101)
     image = heatmap(axes[0], policies, states, beta)
     fig.colorbar(image, ax=axes[0], label=r"Expected action $\mathrm{E}[a\mid i]$")
@@ -38,8 +38,8 @@ def plot(data):
     )
     fig.colorbar(image, ax=axes[1], label=r"Per-capita drift $(\lambda-\mu)/i$")
     titles = (
-        r"Constrained model: policy sweep over $\beta$",
-        r"Constrained model: drift sweep over $\beta$",
+        r"Constrained linear policy across $\beta$",
+        r"Constrained linear drift across $\beta$",
     )
     for label, ax, title in zip("AB", axes, titles):
         ax.set(
@@ -49,7 +49,6 @@ def plot(data):
         )
         ax.title.set_fontweight("bold")
         panel_label(ax, f"{label}.")
-    fig.tight_layout()
     return fig
 
 

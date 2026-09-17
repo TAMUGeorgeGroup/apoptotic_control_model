@@ -13,7 +13,7 @@ def solve(**changes):
 
 def plot():
     use_paper_style()
-    fig, axes = plt.subplots(3, 2, figsize=(11, 12))
+    fig, axes = plt.subplots(3, 2, figsize=(11, 12), layout="constrained")
     states = np.arange(1, FIGURE_S1["N"])
     a_star = (FIGURE_S1["delta"] + FIGURE_S1["delta0"]) / (
         FIGURE_S1["r"] + FIGURE_S1["delta"]
@@ -49,10 +49,10 @@ def plot():
     titles = (
         r"Policy slices across $\kappa_2$",
         r"Drift slices across $\kappa_2$",
-        r"Cost Ratio Regime: $\kappa_1$ vs $\kappa_2$",
-        "Temporal Horizon Regime: Myopic vs Long-Horizon",
-        "Drift Regime: Growth vs Decay Biased",
-        "Capacity Regime: Threshold Position",
+        "Cost-ratio regime",
+        "Temporal-horizon regime",
+        "Growth–decay regime",
+        "Threshold-position regime",
     )
     ylabels = (
         r"$\pi^*(i)$",
@@ -85,7 +85,6 @@ def plot():
         panel_label(ax, f"{label}.")
         ax.title.set_fontweight("bold")
     axes[2, 1].set_ylim(0.25, 1.02)
-    fig.tight_layout()
     return fig
 
 
