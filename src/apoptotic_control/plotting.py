@@ -16,14 +16,14 @@ def finish(fig, output):
 
 def panel_label(ax, label):
     ax.text(
-        -0.12,
-        1.03,
+        -0.13,
+        1.06,
         label,
         transform=ax.transAxes,
         fontsize=16,
         fontweight="bold",
-        va="bottom",
         ha="left",
+        va="bottom",
     )
 
 
@@ -48,9 +48,9 @@ def use_paper_style():
     plt.rcParams.update(
         {
             "font.size": 11,
-            "axes.titlesize": 16,
+            "axes.titlesize": 15,
             "axes.titleweight": "bold",
-            "axes.labelsize": 12,
+            "axes.labelsize": 13,
             "xtick.labelsize": 11,
             "ytick.labelsize": 11,
             "legend.fontsize": 9,
