@@ -15,7 +15,16 @@ def finish(fig, output):
 
 
 def panel_label(ax, label):
-    ax.text(-0.12, 1.03, label, transform=ax.transAxes, weight="bold", size=15)
+    ax.text(
+        -0.12,
+        1.03,
+        label,
+        transform=ax.transAxes,
+        fontsize=16,
+        fontweight="bold",
+        va="bottom",
+        ha="left",
+    )
 
 
 def heatmap(ax, values, states, parameters, *, cmap="viridis", vmin=None, vmax=None):
@@ -38,10 +47,13 @@ def symmetric_limits(values):
 def use_paper_style():
     plt.rcParams.update(
         {
-            "font.size": 10,
-            "axes.titlesize": 11,
-            "axes.labelsize": 10,
-            "legend.fontsize": 8,
+            "font.size": 11,
+            "axes.titlesize": 16,
+            "axes.titleweight": "bold",
+            "axes.labelsize": 12,
+            "xtick.labelsize": 11,
+            "ytick.labelsize": 11,
+            "legend.fontsize": 9,
             "figure.dpi": 150,
         }
     )
