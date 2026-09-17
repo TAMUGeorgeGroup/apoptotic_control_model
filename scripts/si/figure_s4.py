@@ -44,7 +44,7 @@ def plot(data):
             "viridis",
             r"$\kappa$",
             r"Policy sweep over $\kappa$",
-            r"Optimal action $a^*(i)$",
+            r"Optimal action $\pi^*(i)$",
         ),
         (
             kappa_data[1],
@@ -60,7 +60,7 @@ def plot(data):
             "viridis",
             r"$c_3$",
             r"Policy sweep over $c_3$",
-            r"Optimal action $a^*(i)$",
+            r"Optimal action $\pi^*(i)$",
         ),
         (
             c3_data[1],
