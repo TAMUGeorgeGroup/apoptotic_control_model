@@ -37,7 +37,7 @@ def compute(n_paths=1000):
         "Baseline $a^*$": (threshold[0], baseline_policy(parameters("threshold"))),
         "Threshold cost": (threshold[0], threshold[2]),
         "Quadratic cost": (quadratic[0], quadratic[2]),
-        "Unbounded cost": (unbounded[0], unbounded[2]),
+        "Unbounded reward": (unbounded[0], unbounded[2]),
         "Constrained cost": (linear["model"], linear["policy_plot"]),
         "Constrained quadratic cost": (
             constrained_quadratic["model"],
