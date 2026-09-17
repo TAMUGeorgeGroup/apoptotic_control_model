@@ -30,7 +30,7 @@ def compute(quick=False):
 
 def plot(runs):
     use_paper_style()
-    fig, axes = plt.subplots(1, 2, figsize=(11, 4))
+    fig, axes = plt.subplots(1, 2, figsize=(11, 4), layout="constrained")
     for label, model, policy in runs:
         states = np.arange(model.N + 1)
         axes[0].plot(states[1:501], policy[1:501], linewidth=2, label=label)
@@ -42,12 +42,12 @@ def plot(runs):
     axes[0].plot(states[1:501], baseline[1:501], "k--", label="Baseline $a^*$")
     axes[1].axhline(0, color="black", linestyle="--", label="Baseline $a^*$")
     axes[0].set(
-        title="Unbounded linear-reward model: policy comparison",
+        title="Unbounded reward: policy",
         xlabel="Population state $i$",
         ylabel=r"Optimal action $\pi^*(i)$",
     )
     axes[1].set(
-        title="Unbounded linear-reward model: drift comparison",
+        title="Unbounded reward: drift",
         xlabel="Population state $i$",
         ylabel=r"$(\lambda-\mu)/i$",
     )
@@ -58,7 +58,6 @@ def plot(runs):
         ax.grid(alpha=0.25)
         ax.legend()
         ax.title.set_fontweight("bold")
-    fig.tight_layout()
     return fig
 
 

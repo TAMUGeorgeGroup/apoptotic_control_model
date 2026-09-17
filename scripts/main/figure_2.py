@@ -27,7 +27,7 @@ def compute():
 def plot(data):
     kappa2, c1, threshold, quadratic = data
     use_paper_style()
-    fig, axes = plt.subplots(2, 2, figsize=(10, 7))
+    fig, axes = plt.subplots( 2, 2, figsize=(10, 7), layout="constrained"  )
     states = np.arange(1, 101)
 
     panels = (
@@ -63,10 +63,10 @@ def plot(data):
         ),
     )
     titles = (
-        "Threshold Model: Optimal Policy",
-        "Threshold Model: Normalized Drift",
-        "Quadratic Cost Model: Optimal Policy",
-        "Quadratic Cost Model: Normalized Drift",
+        "Threshold policy",
+        "Threshold drift",
+        "Quadratic-cost policy",
+        "Quadratic-cost drift",
     )
     ylabels = (
         r"Threshold Penalty $\kappa_2$",
@@ -82,10 +82,8 @@ def plot(data):
         image = heatmap(ax, values, states, parameter, cmap=cmap, vmin=vmin, vmax=vmax)
         fig.colorbar(image, ax=ax, label=colorbar_label)
         ax.set(title=title, xlabel="Population state $i$", ylabel=ylabel)
-        ax.title.set_fontweight("bold")
         panel_label(ax, f"{label}.")
 
-    fig.tight_layout()
     return fig
 
 

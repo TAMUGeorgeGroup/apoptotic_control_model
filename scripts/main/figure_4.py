@@ -31,8 +31,7 @@ def compute(quick=False):
 def plot(data):
     linear, quadratic = data
     use_paper_style()
-    fig, axes = plt.subplots(2, 2, figsize=(10, 7))
-
+    fig, axes = plt.subplots(2, 2, figsize=(10, 7), layout="constrained")
     for row, runs in enumerate((linear, quadratic)):
         for beta, run in runs:
             states = np.arange(run["model"].N + 1)
@@ -50,10 +49,10 @@ def plot(data):
         )
 
     titles = (
-        "Constrained model: policy comparison",
-        "Constrained model: drift comparison",
-        "Constrained quadratic: policy comparison",
-        "Constrained quadratic: drift comparison",
+        "Constrained linear: policy",
+        "Constrained linear: drift",
+        "Constrained quadratic: policy",
+        "Constrained quadratic: drift",
     )
     ylabels = (
         r"Expected optimal action $\mathbb{E}[\pi\mid i]$",
@@ -73,7 +72,6 @@ def plot(data):
     axes[0, 1].set_ylim(-0.05, 0.30)
     axes[1, 0].set_ylim(-0.02, 1.02)
     axes[1, 1].set_ylim(-0.30, 0.40)
-    fig.tight_layout()
     return fig
 
 

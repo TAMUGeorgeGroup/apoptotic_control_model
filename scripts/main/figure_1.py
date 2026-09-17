@@ -71,7 +71,7 @@ def compute(n_paths=1000):
 
 def plot(runs, summaries):
     use_paper_style()
-    fig, axes = plt.subplots(2, 2, figsize=(11, 8))
+    fig, axes = plt.subplots(2, 2, figsize=(11, 8), layout="constrained")
     colors = dict(zip(runs, ["0.45", "C0", "C1", "C2", "C3", "C4"]))
 
     widths = []
@@ -101,7 +101,7 @@ def plot(runs, summaries):
         ylim=(0, 100),
     )
     axes[1, 1].set(
-        title=r"Near-zero-drift region for $i<100$",
+        title=r"Near-zero-drift region ($i<100$)",
         ylabel=r"Number of states with $|g(i)|\leq 0.02$",
     )
     axes[0, 1].axhline(0, color="black", linestyle="--", linewidth=0.8)
@@ -115,7 +115,6 @@ def plot(runs, summaries):
     for ax in axes.flat[:3]:
         ax.legend()
 
-    fig.tight_layout()
     return fig
 
 
