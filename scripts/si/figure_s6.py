@@ -31,7 +31,7 @@ def plot(data):
     fig, axes = plt.subplots(1, 2, figsize=(11, 4), layout="constrained")
     states = np.arange(1, 101)
     image = heatmap(axes[0], policies, states, beta)
-    fig.colorbar(image, ax=axes[0], label=r"Expected action $\mathrm{E}[a\mid i]$")
+    fig.colorbar(image, ax=axes[0], label=r"Expected action $\mathrm{E}[\pi^*\mid i]$")
     limits = symmetric_limits(drifts)
     image = heatmap(
         axes[1], drifts, states, beta, cmap="RdBu_r", vmin=limits[0], vmax=limits[1]
